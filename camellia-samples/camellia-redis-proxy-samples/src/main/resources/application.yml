@@ -27,9 +27,9 @@ camellia-redis-proxy:
 #  command-interceptor-class-name: com.netease.nim.camellia.redis.proxy.mq.kafka.KafkaMqPackConsumer #方法拦截器
 #  command-interceptor-class-name: com.netease.nim.camellia.redis.proxy.mq.kafka.KafkaMqPackProducerConsumer #方法拦截器
 #  command-interceptor-class-name: com.netease.nim.camellia.redis.proxy.command.async.interceptor.DelayDoubleDeleteCommandInterceptor #方法拦截器
-  converter-enable: false
+  converter-enable: true
   converter-config:
-    key-converter-class-name: com.netease.nim.camellia.redis.proxy.samples.CustomKeyConverter
+    key-converter-class-name: com.netease.nim.camellia.redis.proxy.samples.NameSpaceKeyConverter
     string-converter-class-name: com.netease.nim.camellia.redis.proxy.samples.CustomStringConverter
     list-converter-class-name: com.netease.nim.camellia.redis.proxy.samples.CustomListConverter
     hash-converter-class-name: com.netease.nim.camellia.redis.proxy.samples.CustomHashConverter

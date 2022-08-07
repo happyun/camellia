@@ -38,6 +38,7 @@ public class ChannelInfo {
     private String clientName;
     private Long bid;
     private String bgroup;
+    private String nameSpace;
 
     public ChannelInfo() {
         this.consid = null;
@@ -228,6 +229,14 @@ public class ChannelInfo {
 
     public void setInSubscribe(boolean inSubscribe) {
         this.inSubscribe = inSubscribe;
+    }
+
+    public String getNameSpace() {
+        return nameSpace;
+    }
+
+    public void setNameSpace(String nameSpace) {
+        this.nameSpace = nameSpace;
     }
 
     public static enum ChannelStats {

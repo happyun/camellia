@@ -6,12 +6,19 @@ import java.net.SocketAddress;
  * 注意各字段的判空
  * Created by caojiajun on 2020/11/10
  */
-public class CommandContext {
-    private final Long bid;
-    private final String bgroup;
-    private final SocketAddress clientSocketAddress;
+public class CommandContext extends CommandContextForNameSpace {
+    protected final Long bid;
+    protected final String bgroup;
+    protected final SocketAddress clientSocketAddress;
 
     public CommandContext(Long bid, String bgroup, SocketAddress clientSocketAddress) {
+        super(null);
+        this.bid = bid;
+        this.bgroup = bgroup;
+        this.clientSocketAddress = clientSocketAddress;
+    }
+    public CommandContext(Long bid, String bgroup, SocketAddress clientSocketAddress,String nameSpace) {
+        super(nameSpace);
         this.bid = bid;
         this.bgroup = bgroup;
         this.clientSocketAddress = clientSocketAddress;

@@ -7,6 +7,8 @@ public class ClientIdentity {
 
     private boolean pass;
 
+    private String nameSpace;
+
     public Long getBid() {
         return bid;
     }
@@ -29,5 +31,14 @@ public class ClientIdentity {
 
     public void setPass(boolean pass) {
         this.pass = pass;
+    }
+
+    public String getNameSpace() {
+        return nameSpace;
+    }
+
+    public ClientIdentity setNameSpace(String nameSpace) {
+        this.nameSpace = nameSpace;
+        return this;
     }
 }

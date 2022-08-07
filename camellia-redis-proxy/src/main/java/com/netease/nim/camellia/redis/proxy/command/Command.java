@@ -2,6 +2,7 @@ package com.netease.nim.camellia.redis.proxy.command;
 
 
 import com.netease.nim.camellia.redis.proxy.command.async.CommandContext;
+import com.netease.nim.camellia.redis.proxy.command.async.CommandContextForNameSpace;
 import com.netease.nim.camellia.redis.proxy.enums.RedisCommand;
 import com.netease.nim.camellia.redis.proxy.enums.RedisKeyword;
 import com.netease.nim.camellia.redis.proxy.netty.ChannelInfo;
@@ -106,7 +107,7 @@ public class Command {
     public CommandContext getCommandContext() {
         if (commandContext != null) return commandContext;
         if (channelInfo != null) {
-            commandContext = new CommandContext(channelInfo.getBid(), channelInfo.getBgroup(), channelInfo.getClientSocketAddress());
+            commandContext = new CommandContext(channelInfo.getBid(), channelInfo.getBgroup(), channelInfo.getClientSocketAddress(), channelInfo.getNameSpace());
         } else {
             commandContext = new CommandContext(null, null, null);
         }

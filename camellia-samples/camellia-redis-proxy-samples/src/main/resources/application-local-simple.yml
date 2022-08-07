@@ -13,6 +13,11 @@ camellia-redis-proxy:
       type: simple
       resource: redis://@127.0.0.1:6379
 
+  converter-config:
+    converter-enable: true
+    key-converter-class-name: com.netease.nim.camellia.redis.proxy.samples.CustomKeyConverter
+
+
 
 
 

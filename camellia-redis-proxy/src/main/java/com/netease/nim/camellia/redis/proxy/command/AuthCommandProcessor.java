@@ -54,6 +54,9 @@ public class AuthCommandProcessor {
         }
         channelInfo.setChannelStats(ChannelInfo.ChannelStats.AUTH_OK);
 
+        if (clientIdentity.getNameSpace() != null) {
+            channelInfo.setNameSpace(clientIdentity.getNameSpace());
+        }
         if (clientIdentity.getBid() != null && channelInfo.getBid() == null) {//不允许auth多次来改变bid/bgroup
             channelInfo.setBid(clientIdentity.getBid());
             channelInfo.setBgroup(clientIdentity.getBgroup());

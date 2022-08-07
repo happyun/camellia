@@ -12,6 +12,12 @@ public class ClientAuthByConfigProvider implements ClientAuthProvider {
 
     @Override
     public ClientIdentity auth(String userName, String password) {
+        String nameSpace = null;
+        if (password.contains("#")) {
+            String[] split = password.split("#");
+            nameSpace = split[0];
+            password = split[1];
+        }
         ClientIdentity clientIdentity = new ClientIdentity();
         if (userName != null && !userName.equals("default")) {
             clientIdentity.setPass(false);
@@ -19,6 +25,9 @@ public class ClientAuthByConfigProvider implements ClientAuthProvider {
         }
         clientIdentity.setPass(!StringUtil.isNullOrEmpty(this.configPassword)
                 && this.configPassword.equals(password));
+        if (nameSpace != null) {
+            clientIdentity.setNameSpace(nameSpace);
+        }
         return clientIdentity;
     }
 

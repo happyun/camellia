@@ -252,6 +252,7 @@ public class CommandsTransponder {
                 if (command.getRedisCommand() == RedisCommand.GET && hotKeyCacheManager != null) {
                     if (command.getObjects().length >= 2) {
                         byte[] key = command.getObjects()[1];
+//                        HotKeyCache hotKeyCache = hotKeyCacheManager.get(channelInfo.getBid(), channelInfo.getBgroup());
                         HotKeyCache hotKeyCache = hotKeyCacheManager.get(channelInfo.getBid(), channelInfo.getBgroup());
                         if (hotKeyCache != null) {
                             task.setHotKeyCache(hotKeyCache);

@@ -3,6 +3,8 @@ package com.netease.nim.camellia.redis.proxy.command.auth;
 import com.googlecode.concurrentlinkedhashmap.ConcurrentLinkedHashMap;
 import com.netease.nim.camellia.redis.proxy.conf.ProxyDynamicConf;
 
+import java.util.Objects;
+
 
 /**
  * 使用ProxyDynamicConf进行自定义配置（camellia-redis-proxy.properties）
@@ -23,6 +25,7 @@ public class DynamicConfClientAuthProvider implements ClientAuthProvider {
     }
 
     @Override
+    //使用  password 作为区分不同工作 group 的依据
     public ClientIdentity auth(String userName, String password) {
         try {
             ClientIdentity clientIdentity = cache.get(password);
